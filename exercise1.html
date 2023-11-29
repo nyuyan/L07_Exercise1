@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1</title>
+  </head>
+
+  <body>
+    <form id="myForm">
+      <input id="name" type="text" placeholder="Name" value="" /><br /><br />
+      <input id="email" type="email" placeholder="Email" value="" /><br /><br />
+      <label> <input type="radio" name="gender" value="male" /> Male </label>
+      <label> <input type="radio" name="gender" value="female" /> Female </label
+      ><br /><br />
+      <input type="button" value="Submit" onclick="submitForm()" />
+    </form>
+
+
+    <div id="DataRecorded"></div>
+
+    <script>
+      function submitForm() {
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+
+
+        if (name === "" || email === "" || gender === null) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+
+        var DataRecordedDisplay = document.getElementById("DataRecorded");
+        DataRecordedDisplay.innerHTML =
+          "<h2>Data Recorded</h2>" +
+          "<p><strong>Name:</strong> " +
+          name +
+          "</p>" +
+          "<p><strong>Email:</strong> " +
+          email +
+          "</p>" +
+          "<p><strong>Gender:</strong> " +
+          gender.value +
+          "</p>";
+      }
+    </script>
+  </body>
+</html>
